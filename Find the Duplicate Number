@@ -1,0 +1,14 @@
+// Brute Force : Using a Count array, returning the element whose count is greater than 1
+
+class Solution {
+public:
+    int findDuplicate(vector<int>& nums) {
+        vector<int> count(nums.size(),0);
+        for(auto i : nums)
+            count[i]++;
+        for(int i=1;i<=nums.size();i++)
+            if(count[i]>1)
+                return i;
+        return 0;   
+    }
+};

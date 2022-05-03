@@ -1,0 +1,25 @@
+// Inbuilt sort method ; T,S : nlogn,1
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+    }
+};
+
+
+
+// Using count vector ; T,S : n,n
+class Solution {
+public:
+    void sortColors(vector<int>& nums) {
+        vector<int> count(3,0);
+        for(auto& i : nums)
+            count[i]++;
+        int j=0,i=0;
+        while(i<nums.size()){
+            while(count[j]--)
+                nums[i++] = j;
+            j++;
+        }
+    }
+};

@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+        int last=nums[0],ind=1;
+        for(int i=1;i<nums.size();i++)
+        {
+            if(nums[i]!=last)
+                nums[ind++] = nums[i];
+                last = nums[i];
+        }
+        return ind;
+    }
+};
+// Sorting the vector. Comparing if some element is same as the adj. one , if it isn't adding it to the beginning at an index 

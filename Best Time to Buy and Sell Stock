@@ -1,0 +1,15 @@
+class Solution {
+    priority_queue <int, vector<int>, greater<int> >  p;
+public:
+    int maxProfit(vector<int>& prices) {
+        int ans = INT_MIN;
+        for (auto& n : prices)
+        {
+            if(!p.empty()){
+                ans = max(ans,n-p.top());
+            }
+            p.push(n);
+        }
+        return (ans==-1 || ans==INT_MIN)?0:ans;
+    }
+};
